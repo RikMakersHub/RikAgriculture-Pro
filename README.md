@@ -59,3 +59,5 @@ This ecosystem combines standalone physical boundary security with digital seaso
 
 ## 👥 Author
 * **Rik** - Lead Architect & Developer at RikMakersHub
+
+**COME CHECK IT OUT IN:**   https://rikmakershub.github.io/RikAgriculture-Pro/  
