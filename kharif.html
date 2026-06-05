@@ -6,6 +6,60 @@
     <title>RikMakersHub AgTech - Kharif Season Core</title>
     <style>
         /* ... All your CSS styling stays up here inside the head tag ... */
+       /* Master Application Header Panel */
+.master-header {
+    background-color: #0f172a; /* Slate 900 background matching your layout style */
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 15px;
+    margin: -15px -15px 25px -15px; /* Spans full box boundaries */
+    border-bottom: 3px solid var(--primary);
+    border-top-left-radius: 12px;  /* Matches your box corner curves */
+    border-top-right-radius: 12px;
+}
+
+.master-header h1 {
+    font-size: 24px;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+}
+
+.master-header p {
+    font-size: 13px;
+    color: #94a3b8; /* Soft slate text tint */
+    margin: 0 0 16px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Teleport Button Navigation Pills */
+.nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-pill {
+    background-color: #334155;
+    color: #f8fafc;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Active Highlight pill state */
+.nav-pill.active {
+    background-color: #0284c7; /* Sky blue active marker */
+    color: white;
+}
+
+.nav-pill:hover:not(.active) {
+    background-color: #475569;
+}
+
         :root { --primary: #1b5e20; --bg: #e8f5e9; --surface: #ffffff; --text: #212121; }
         body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 15px; margin: 0; }
         .box { max-width: 550px; margin: 20px auto; background: var(--surface); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
@@ -23,9 +77,18 @@
 
 <div class="box">
     <h1>🌧️ Kharif Season Advisor (खरीफ फसल गाइड / খরিফ শস্য গাইড)</h1>
-    
+   <div class="master-header">
+    <h1>🌱 RikMakersHub AgTech</h1>
+    <p>| Kharif Crop Advisor & Yield Optimizer | by RikMakersHub |</p>
+    <div class="nav-pills">
+        <a href="sentinel.html" class="nav-pill">🏠 Farm Security Project</a>
+        <a href="#" class="nav-pill active">🌧️ Kharif Portal</a>
+        <a href="rabi.html" class="nav-pill">❄️ Rabi Portal</a>
+    </div>
+</div>
+ 
     <!-- These elements MUST load before the script tries to find them -->
-    <label for="crop">1. Choose Kharif Crop:</label>
+   <label for="crop">1. Choose Kharif Crop:</label>
     <select id="crop">
         <option value="">-- Select Kharif Crop --</option>
         <option value="paddy">Paddy / Rice (धान)</option>
