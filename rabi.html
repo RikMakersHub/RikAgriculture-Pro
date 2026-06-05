@@ -5,6 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RikMakersHub AgTech - Rabi Season Core</title>
     <style>
+       /* Master Application Header Panel */
+.master-header {
+    background-color: #0f172a; /* Slate 900 background matching your layout style */
+    color: #ffffff;
+    text-align: center;
+    padding: 24px 15px;
+    margin: -15px -15px 25px -15px; /* Spans full box boundaries */
+    border-bottom: 3px solid var(--primary);
+    border-top-left-radius: 12px;  /* Matches your box corner curves */
+    border-top-right-radius: 12px;
+}
+
+.master-header h1 {
+    font-size: 24px;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+}
+
+.master-header p {
+    font-size: 13px;
+    color: #94a3b8; /* Soft slate text tint */
+    margin: 0 0 16px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Teleport Button Navigation Pills */
+.nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-pill {
+    background-color: #334155;
+    color: #f8fafc;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+/* Active Highlight pill state */
+.nav-pill.active {
+    background-color: #0284c7; /* Sky blue active marker */
+    color: white;
+}
+
+.nav-pill:hover:not(.active) {
+    background-color: #475569;
+}
+
         :root {
             --primary: #0d47a1;
             --primary-dark: #0a2570;
@@ -28,6 +82,15 @@
     </style>
 </head>
 <body>
+<div class="master-header" style="border-bottom-color: #0d47a1;">
+    <h1>🌱 RikMakersHub AgTech</h1>
+    <p>| Rabi Crop Advisor & Winter Management Matrix | by RikMakersHub |</p>
+    <div class="nav-pills">
+        <a href="index.html" class="nav-pill">🏠 Home Dashboard</a>
+        <a href="kharif.html" class="nav-pill">🌧️ Kharif Portal</a>
+        <a href="#" class="nav-pill active">❄️ Rabi Portal</a>
+    </div>
+</div>
 
 <div class="box">
     <h1>❄️ Rabi Season Advisor (रबी फसल गाइड / রবি শস্য গাইড)</h1>
