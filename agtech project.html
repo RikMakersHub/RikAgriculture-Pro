@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RikMakersHub - AgTech Pulse Sentinel Hardware Core</title>
+    <style>
+        /* Master Header Section Style */
+.master-header {
+    background-color: #0f172a; /* Clean dark slate background */
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 15px;
+    margin: -15px -15px 30px -15px; /* Resets body padding constraints */
+    border-bottom: 3px solid var(--primary);
+}
+
+.master-header h1 {
+    font-size: 26px;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.master-header p {
+    font-size: 14px;
+    color: #94a3b8; /* Muted subtitle text color */
+    margin: 0 0 20px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation Pills Container */
+.nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nav-pill {
+    background-color: #334155;
+    color: #f8fafc;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+/* Active Pill Highlight States */
+.nav-pill.active {
+    background-color: #0284c7; /* Bright active blue matching your image */
+    color: white;
+}
+
+.nav-pill:hover:not(.active) {
+    background-color: #475569;
+}
+
+         :root {
+            --primary: #e65100;
+            --primary-dark: #b71c1c;
+            --bg: #fff3e0;
+            --surface: #ffffff;
+            --text: #263238;
+            --border: #ffcc80;
+            --code-bg: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 15px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: var(--primary-dark);
+            font-size: 22px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: #e65100;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        p.description {
+            font-size: 15px;
+            color: #37474f;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: var(--primary-dark);
+            border-left: 4px solid var(--primary);
+            padding-left: 8px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #fff8e1;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fffde7;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            border: 1px solid #334155;
+            margin-top: 10px;
+        }
+
+        .card {
+            background-color: #fffde7;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            font-size: 14px;
+        }
+
+        .card ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="master-header" style="border-bottom-color: #e65100;">
+    <h1>🛰️ RikMakersHub Pulse Sentinel</h1>
+    <p>| Value-Engineered Off-Grid Crop Defense Architecture | by RikMakersHub |</p>
+    <div class="nav-pills">
+        <a href="https://github.io" class="nav-pill">🌧️ Kharif Portal</a>
+        <a href="https://github.io" class="nav-pill">❄️ Rabi Portal</a>
+        <a href="#" class="nav-pill active">🛰️ Hardware Core</a>
+    </div>
+</div>
+
+
+    <p class="description">
+        An ultra-low-cost (~₹450), ruggedized edge device engineered to protect agricultural boundary lines from monkeys, elephants, cattle, and wild boars without high-voltage fence installations or external network overheads.
+    </p>
+
+    <h2>📊 Value Engineering (BOM < ₹500)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Selection</th>
+                <th>Cost (INR)</th>
+                <th>Operational Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>MCU Core</td>
+                <td>Arduino Pro Mini 3.3V</td>
+                <td>₹180</td>
+                <td>Runs randomized loop arrays</td>
+            </tr>
+            <tr>
+                <td>Acoustic</td>
+                <td>High-Decibel Piezo Buzzer</td>
+                <td>₹30</td>
+                <td>Generates variable sweeps (2-12kHz)</td>
+            </tr>
+            <tr>
+                <td>Optic</td>
+                <td>1W White LED + BC547</td>
+                <td>₹40</td>
+                <td>Erratic high-intensity night strobe</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td>Recycled 18650 Li-Ion Cell</td>
+                <td>₹60</td>
+                <td>Salvaged high-capacity power pool</td>
+            </tr>
+            <tr>
+                <td>Solar Module</td>
+                <td>5V Epoxy Panel (100mA)</td>
+                <td>₹125</td>
+                <td>Off-grid passive trickle charging</td>
+            </tr>
+            <tr>
+                <td>Enclosure</td>
+                <td>IP65 PVC Junction Box</td>
+                <td>₹50</td>
+                <td>Weatherproof structural housing</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #fff3e0;">
+                <td colspan="2" style="color: var(--primary-dark);">Economic Total Outlay</td>
+                <td colspan="2" style="color: #2e7d32;">~ ₹485 (SUCCESS)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>💾 Firmware Architecture Blueprint (Embedded C++)</h2>
+    <pre>
+// Board: Arduino Pro Mini (3.3V / 8MHz)
+// Lead Architect: RikMakersHub Open-Source Core
+
+const int BUZZER_PIN = 9;   
+const int STROBE_PIN = 10;  
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+  pinMode(STROBE_PIN, OUTPUT);
+  randomSeed(analogRead(A0)); // Floating pin seed
+}
+
+void loop() {
+  int burstDuration = random(3000, 8000); // 3 to 8 seconds burst
+  unsigned long startTime = millis();
+
+  while (millis() - startTime < burstDuration) {
+    int randomFreq = random(2000, 12000); // 2kHz - 12kHz sweeps
+    tone(BUZZER_PIN, randomFreq);
+    
+    digitalWrite(STROBE_PIN, HIGH);
+    delay(random(20, 80)); // Erratic strobe pulse
+    digitalWrite(STROBE_PIN, LOW);
+    delay(random(20, 80));
+  }
+
+  noTone(BUZZER_PIN); 
+  
+  unsigned long sleepDuration = random(20000, 90000); // Random idle sleep
+  delay(sleepDuration); 
+}
+</pre>
+
+    <h2>📐 Cross-Fire Deployment Strategy</h2>
+    <div class="card">
+        Deploy two independent nodes on diagonal boundary lines (e.g., Northwest and Southeast field borders).
+        <ul>
+            <li><strong>Anti-Habituation:</strong> Because each MCU generates its own random seeds, patterns trigger completely out of sync.</li>
+            <li><strong>Power Optimization:</strong> Desolder the onboard <code>PWR</code> SMD LED on the Arduino Pro Mini to drop passive standby current down into micro-amperes.</li>
+            <li><strong>Weatherproofing:</strong> Drill a sound escape port strictly on the bottom face of the IP65 enclosure to safeguard internals from heavy rainfall pooling.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

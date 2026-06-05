@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RikMakersHub AgTech - Rabi Season Core</title>
+    <style>
+        :root {
+            --primary: #0d47a1;
+            --primary-dark: #0a2570;
+            --accent: #e65100;
+            --bg: #e3f2fd;
+            --surface: #ffffff;
+            --text: #212121;
+        }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); padding: 15px; margin: 0; }
+        .box { max-width: 550px; margin: 20px auto; background: var(--surface); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        h1 { color: var(--primary); font-size: 20px; text-align: center; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 0; }
+        label { display: block; font-weight: bold; margin: 12px 0 6px 0; font-size: 14px; }
+        select, textarea, button { width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-size: 15px; }
+        textarea { height: 90px; font-family: inherit; }
+        button { background: var(--primary); color: #fff; font-weight: bold; border: none; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: var(--primary-dark); }
+        .card { padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid var(--primary); background: #f1f8e9; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .warning { border-left-color: var(--accent); background: #fff3e0; }
+        .cure-box { background: rgba(255,255,255,0.8); border: 1px dashed var(--accent); padding: 10px; border-radius: 4px; margin-top: 8px; font-size: 14px; }
+        .error { color: #b71c1c; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>❄️ Rabi Season Advisor (रबी फसल गाइड / রবি শস্য গাইড)</h1>
+    
+    <label for="crop">1. Choose Rabi Crop (फ़सल चुनें / ফসলের নাম):</label>
+    <select id="crop">
+        <option value="">-- Select Rabi Crop --</option>
+        <option value="wheat">Wheat (गेहूं / গমের চাষ)</option>
+        <option value="mustard">Mustard (सरसों / সরষের চাষ)</option>
+        <option value="chickpea">Chickpea / Gram (चना / ছোলা চাষ)</option>
+    </select>
+    
+    <label for="symptoms">2. Describe Symptoms (लक्षण लिखें / लक्षण - e.g. rust, white, মরিচা, ছাতা, पीला):</label>
+    <textarea id="symptoms" placeholder="Type winter symptoms in English, हिंदी or বাংলা..."></textarea>
+    
+    <button onclick="checkRabi()">Run Rabi Diagnostics</button>
+    
+    <div id="result"></div>
+</div>
+
+<!-- Dynamic Logic Pipeline -->
+<script src="script.js"></script>
+</body>
+</html>

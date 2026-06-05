@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RikMakersHub AgTech - Kharif Season Core</title>
+    <style>
+        /* ... All your CSS styling stays up here inside the head tag ... */
+        :root { --primary: #1b5e20; --bg: #e8f5e9; --surface: #ffffff; --text: #212121; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 15px; margin: 0; }
+        .box { max-width: 550px; margin: 20px auto; background: var(--surface); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        h1 { color: var(--primary); font-size: 20px; text-align: center; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 0; }
+        label { display: block; font-weight: bold; margin: 12px 0 6px 0; font-size: 14px; }
+        select, textarea, button { width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-size: 15px; }
+        textarea { height: 90px; }
+        button { background: var(--primary); color: #fff; font-weight: bold; border: none; cursor: pointer; }
+        .card { padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid var(--primary); background: #f1f8e9; }
+        .warning { border-left-color: #b71c1c; background: #ffebee; }
+        .cure-box { background: rgba(255,255,255,0.8); border: 1px dashed #b71c1c; padding: 10px; border-radius: 4px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>🌧️ Kharif Season Advisor (खरीफ फसल गाइड / খরিফ শস্য গাইড)</h1>
+    
+    <!-- These elements MUST load before the script tries to find them -->
+    <label for="crop">1. Choose Kharif Crop:</label>
+    <select id="crop">
+        <option value="">-- Select Kharif Crop --</option>
+        <option value="paddy">Paddy / Rice (धान)</option>
+        <option value="cotton">Cotton (कपास)</option>
+        <option value="groundnut">Groundnut (मूंगफली)</option>
+    </select>
+    
+    <label for="symptoms">2. Describe Symptoms:</label>
+    <textarea id="symptoms" placeholder="Type symptoms..."></textarea>
+    
+    <button onclick="checkKharif()">Run Kharif Diagnostics</button>
+    
+    <div id="result"></div>
+</div>
+
+<!-- ✅ THE CORRECT SCRIPT POSITION: At the absolute bottom of the body tag -->
+<script>
+const KHARIF_DB = {
+  paddy: {
+    name: "Paddy / Rice (धान / धान)",
+    fert: "Basal: 50kg Urea, 100kg SSP, 30kg MOP per acre. (ইউরিয়া, এসএসপি ও এমওপি সার প্রয়োগ করুন।)",
+    diseases: [
+      { keys: ["blast", "spot", "ব্লাস্ট", "দাগ", "ब्लास्ट", "धब्बा"], name: "Rice Blast / Brown Leaf Spot", cure: "Spray Tricyclazole 75 WP at 120g/acre." }
+    ]
+  },
+  cotton: {
+    name: "Cotton (कपास / तुला চাষ)",
+    fert: "60kg Nitrogen, 30kg Phosphorus, 30kg Potassium per acre.",
+    diseases: [
+      { keys: ["worm", "hole", "pink", "লেদা", "পোকা", "इल्ली", "spot"], name: "Pink Bollworm Infestation", cure: "Spray Profenofos 50 EC at 400 ml/acre." }
+    ]
+  },
+  groundnut: {
+    name: "Groundnut (मूंगफली / চীনাবাদাম চাষ)",
+    fert: "10kg N, 16kg P, 18kg K per acre. Add 100kg Gypsum at day 45.",
+    diseases: [
+      { keys: ["tikka", "দাগ", "टिक्का"], name: "Tikka Leaf Spot", cure: "Apply Carbendazim 12% + Mancozeb 63% WP." }
+    ]
+  }
+};
+
+function checkKharif() {
+    const crop = document.getElementById("crop").value;
+    const input = document.getElementById("symptoms").value.toLowerCase().trim();
+    const resultDiv = document.getElementById("result");
+    
+    if (!crop) { 
+        resultDiv.innerHTML = "<p style='color:red; text-align:center;'>Please select a valid crop.</p>"; 
+        return; 
+    }
+    
+    let data = KHARIF_DB[crop];
+    let outputHtml = `<div class="card"><h3>🎯 Fertilizer Schedule:</h3><p>${data.fert}</p></div>`;
+    let foundMatch = false;
+    
+    if (input.length > 2) {
+        data.diseases.forEach(d => {
+            if (d.keys.some(key => input.includes(key))) {
+                foundMatch = true;
+                outputHtml += `<div class="card warning"><h3>🚨 Match: ${d.name}</h3><div class="cure-box"><p>${d.cure}</p></div></div>`;
+            }
+        });
+    }
+    
+    if (!foundMatch && input.length > 2) {
+        outputHtml += `<div class="card" style="border-left-color: #607d8b; background: #eee;"><p>No standard disease patterns matched.</p></div>`;
+    }
+    resultDiv.innerHTML = outputHtml;
+}
+</script>
+
+</body>
+</html>

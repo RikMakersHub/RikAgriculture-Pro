@@ -1,0 +1,93 @@
+// RikMakersHub Open-Source AgTech Rabi Database Core
+const RABI_DB = {
+  wheat: {
+    name: "Wheat (गेहूं / গম চাষ)",
+    fert: "Apply 50kg Urea, 60kg DAP, and 20kg MOP per acre at sowing. Top-dress remaining Urea during early Crown Root stage at 21 days. (सिलाई के समय यूरिया, डीएपी और पोटाश डालें। पहली सिंचाई पर यूरिया का टॉप-ड्रेस करें। / প্রথম সেচের সময় ইউরিয়া চাপান সার দিন।)",
+    diseases: [
+      { keys: ["yellow rust", "stripe", "orange", "rust", "মরিচা", "হলুদ", "रतुआ", "पीला"], name: "Yellow / Stripe Rust (पीला रतुआ / গমের হলুদ মরিচা রোগ)", cure: "Spray Propiconazole 25 EC (Tilt) at 200 ml per acre with 200 liters of water. (प्रोपिकोनाज़ोल 25 EC को 200 मिली प्रति एकड़ 200 लीटर पानी में मिलाकर छिड़कें। / প্রোপিকোনাজল ২৫ ইসি প্রতি একরে ২০০ মিলি স্প্রে করুন।)" },
+      { keys: ["loose", "smut", "black", "powder", "head", "ঝুল", "কালো", "कंडुआ"], name: "Loose Smut (काला कंडुआ रोग / গমের আলগা ঝুল রোগ)", cure: "Preventative seed treatment with Carboxin at 2g/kg before sowing. Burn infected heads. (बुवाई से पहले कार्बोक्सिन 2 ग्राम/किलो से बीज उपचार करें। काली बालियों को नष्ट करें। / কার্বক্সিন দিয়ে বীজ শোধন করুন।)" },
+      { keys: ["powdery", "mildew", "white", "ash", "grey", "ছত্রাক", "चूर्णिल", "आसानी"], name: "Powdery Mildew (चूर्णिल आसिता / পাউডারি milডিউ রোগ)", cure: "Spray wettable Sulphur 80 WP at 1 kg per acre. (घुलनशील सल्फर 80 WP को 1 किलो प्रति एकड़ की दर से छिड़कें। / প্রতি একরে ১ কেজি গন্ধক গুঁড়ো ছড়ান।)" },
+      { keys: ["blight", "alternaria", "leaf", "drying", "ঝলসা", "झुलसा"], name: "Alternaria Leaf Blight (पत्ती झुलसा रोग / অল্টারনারিয়া পাতা ঝলসা রোগ)", cure: "Spray Mancozeb 75 WP at 500 grams per acre if spots expand. (पत्तियों पर भूरे धब्बे दिखने पर मैनकोजेब 500 ग्राम प्रति एकड़ छिड़कें। / ম্যানকোজেব ৭৫ ডাব্লিউপি প্রতি একরে ৫০০ গ্রাম স্প্রে করুন।)" },
+      { keys: ["bunt", "karnal", "fishy", "smell", "grain", "কার্নাল বুন্ট", "करनाल बंट"], name: "Karnal Bunt (करनाल बंट रोग / কার্নাল বুন্ট রোগ)", cure: "Foliar spray of Propiconazole 25 EC at 200 ml per acre at heading/flowering. (बालियां आते समय प्रोपिकोनाज़ोल 200 मिली प्रति एकड़ छिड़कें। / গম গাছে ফুল আসার সময় প্রোপিকোনাজল ২৫ ইসি প্রতি একরে ২০০ মিলি স্প্রে করুন।)" }
+    ]
+  },
+  mustard: {
+    name: "Mustard (सरसों / সরষের চাষ)",
+    fert: "Apply 40kg Nitrogen, 16kg Phosphorus, and 15kg Potassium per acre. Add 10kg Elemental Sulphur per acre for high oil content. (सरसों में तेल की मात्रा बढ़ाने के लिए 10 किलो सल्फर प्रति एकड़ अवश्य डालें। / তেলের পরিমাণ বাড়াতে সালফার সার দিন।)",
+    diseases: [
+      { keys: ["white rust", "blister", "pustule", "white", "সাদা", "মরিচা", "सफेद रतुआ"], name: "White Rust (सफेद रतुआ / সরষের সাদা মরিচা রোগ)", cure: "Spray Metalaxyl 8% + Mancozeb 64% (Ridomil Gold) at 400g/acre. (मेटालैक्सिल + मैनकोजेब 400 ग्राम प्रति एकड़ छिड़कें। खेत को साफ रखें। / রিডোমিল গোল্ড প্রতি একরে ৪০০ গ্রাম স্প্রে করুন।)" },
+      { keys: ["alternaria", "blight", "concentric", "target", "ঝলসা", "কালো দাগ", "झुलसा", "काले धब्बे"], name: "Alternaria Blight / Leaf Spot (ऑल्टरनेरिया झुलसा রোগ / পাতা ঝলসা রোগ)", cure: "Spray Irodione (Rovral) or Mancozeb at 500g/acre under heavy fog warning cycles. (कोहरे के समय रोवरल या मैनकोजेब 500 ग्राम प्रति एकड़ छिड़कें। / কুয়াশাচ্ছন্ন আবহাওয়ায় রভরাল বা ম্যানকোজেব প্রতি একরে ৫০০ গ্রাম স্প্রে করুন।)" },
+      { keys: ["downy", "mildew", "purplish", "fuzz", "ছাতা", "मृदुरोमिल"], name: "Downy Mildew (मृदुरोमिल आसिता / ডাউনি মিলডিউ রোগ)", cure: "Foliar spray of Mancozeb at 400g/acre or seed treatment with Metalaxyl. (मैनकोजेब 400 ग्राम प्रति एकड़ छिड़कें या बुवाई से पहले बीजों को मेटालैक्सिल से उपचारित करें। / ম্যানকোজেব ৪০০ গ্রাম প্রতি একরে স্প্রে করুন।)" },
+      { keys: ["stem rot", "sclerotinia", "web", "rotting", "কাণ্ড পচা", "तनाव सड़न"], name: "Sclerotinia Stem Rot (तना सड़न रोग / কাণ্ড পচা রোগ)", cure: "Spray Carbendazim 50 WP at 200g/acre around the bases. (कार्बेंडाजिम 50 WP को 200 ग्राम प्रति एकड़ पौधों के तनों के पास छिड़कें। / কার্বেনডাজিম ৫০ ডাব্লিউপি প্রতি একরে ২০০ গ্রাম গোড়ায় স্প্রে করুন।)" },
+      { keys: ["powdery", "white coat", "ashy", "সাদা গুঁড়ো", "चूर्णिल"], name: "Powdery Mildew (चूर्णिल रोग / পাউডারি মিলডিউ রোগ)", cure: "Spray Dinocap at 200 ml per acre or apply fine Sulphur powder arrays. (डाइनोकैप 200 मिली प्रति एकड़ छिड़कें या सुबह के समय बारीक गंधक पाउडर का बुरकाव करें। / ডাইনোক্যাপ ২০০ মিলি প্রতি একরে স্প্রে করুন।)" }
+    ]
+  },
+  chickpea: {
+    name: "Chickpea / Gram (चना / ছোলা চাষ)",
+    fert: "Basal dose of 10kg Nitrogen, 20kg Phosphorus, and 10kg Sulphur per acre. Inoculate seeds with Rhizobium culture. (बुवाई से पहले बीजों को राइजोबियम कल्चर से उपचारित करें। / রাইজোবিয়াম কালচার দিয়ে বীজ শোধন করুন।)",
+    diseases: [
+      { keys: ["wilt", "fusarium", "drying", "brown", "উখড়া", "ঢলে পড়া", "उकठा", "सूखना"], name: "Fusarium Wilt (उकठा रोग / ছোলার উখড়া বা ঢলে পড়া রোগ)", cure: "No post-infection cure. Future fix: Treat seeds with Trichoderma harzianum at 4g/kg before sowing. (फसल सूखने के बाद रासायनिक इलाज संभव नहीं है। अगली बार बीजों को ट्राइकोडरमा से उपचारित करें। / বীজ शোধন করুন।)" },
+      { keys: ["dry root", "rot", "black root", "brittle", "মূল পচা", "जड़ सड़न"], name: "Dry Root Rot / Rhizoctonia (सूखी जड़ सड़न / শুকনো মূল পচা রোগ)", cure: "Apply biological seed coating of Trichoderma viride. Avoid moisture stress at pod stages. (जड़ों को सूखने से बचाने के लिए ट्राइकोडरमा विरिडी का उपयोग करें। / ট্রাইকোডার্মা ভিরিডি দিয়ে বীজ শোধন করুন।)" },
+      { keys: ["collar", "rot", "white thread", "base", "গোড়া পচা", "कॉलर गलन"], name: "Collar Rot (कॉलर गलन रोग / ছোলার গোড়া পচা রোগ)", cure: "Deep summer plowing and seed treatment with Carboxin + Thiram at 2.5g/kg seed. (गर्मियों में गहरी जुताई करें और बीजों को कार्बोक्सिन + थिरम से उपचारित करें। / ভাইট্যাভ্যাক্স পাওয়ার দিয়ে বীজ শোধন করুন।)" },
+      { keys: ["ascochyta", "blight", "circular spot", "pod", "ঝলসা", "एस्कोकाइटा"], name: "Ascochyta Blight (एस्कोकाइटा झुलसा / অ্যাসকোচাইটা ঝলসা রোগ)", cure: "Spray Hexaconazole or Chlorothalonil at 400g/acre if spots form on upper pods. (फलियों पर काले छल्ले दिखने पर क्लोरोथैलोनिल 400 ग्राम प्रति एकड़ छिड़कें। / হেক্সাকোনাজল বা ক্লোরোথ্যালোনিল ৪০০ গ্রাম স্প্রে করুন।)" },
+      { keys: ["grey mould", "botrytis", "fuzzy", "flower drop", "ধূসর ছাতা", "धूसर फफूंद"], name: "Botrytis Grey Mould / BGM (धूसर फफूंद / ধূসর ছাতা রোগ)", cure: "Spray Carbendazim + Mancozeb compound at 400g/acre. Avoid ultra-dense row patterns. (कार्बेंडाजिम + मैनकोजेब मिश्रण 400 ग्राम प्रति एकड़ छिड़कें। पौधे घने न बोएं। / কার্বেনডাজিম ও ম্যানকোজেব মিশ্রণ ৪০০ গ্রাম স্প্রে করুন।)" }
+    ]
+  }
+};
+
+function checkRabi() {
+    const crop = document.getElementById("crop").value;
+    const input = document.getElementById("symptoms").value.toLowerCase().trim();
+    const resultDiv = document.getElementById("result");
+    
+    if (!resultDiv) {
+        alert("Fatal Error: Destination viewport node placeholder missing from layout schema map.");
+        return;
+    }
+    
+    if (!crop) { 
+        resultDiv.innerHTML = "<p class='error'>Please select a valid rabi crop. (कृपया रबी फसल चुनें / একটি রবি ফসল নির্বাচন করুন।)</p>"; 
+        return; 
+    }
+    
+    let data = RABI_DB[crop];
+    
+    let outputHtml = `
+      <div class="card" style="border-left-color: var(--primary);">
+        <h3>🎯 Winter Fertilizer Protocol (उर्वरक अनुप्रयोग / সার প্রয়োগ নীতি):</h3>
+        <p>${data.fert}</p>
+      </div>
+      <div style="margin-top: 15px; font-weight: bold; font-size: 14px; color: #37474f;">
+        🔍 Diagnostics Report (जांच रिपोर्ट / রোগ নির্ণয় রিপোর্ট):
+      </div>
+    `;
+    
+    let foundMatch = false;
+    
+    if (input.length > 2) {
+        data.diseases.forEach(d => {
+            if (d.keys.some(key => input.includes(key))) {
+                foundMatch = true;
+                outputHtml += `
+                  <div class="card warning">
+                    <h3>🚨 Match: ${d.name}</h3>
+                    <div class="cure-box">
+                      <strong>Remedial Actions (उपचार / সমাধান):</strong>
+                      <p style="margin:5px 0 0 0;">${d.cure}</p>
+                    </div>
+                  </div>
+                `;
+            }
+        });
+    }
+    
+    if (!foundMatch && input.length > 2) {
+        outputHtml += `
+          <div class="card" style="border-left-color: #607d8b; background: #eee;">
+            <p style="margin:0;">No standard winter signatures matched your specific keyword. Track soil root temperatures.</p>
+          </div>
+        `;
+    }
+    
+    resultDiv.innerHTML = outputHtml;
+}
